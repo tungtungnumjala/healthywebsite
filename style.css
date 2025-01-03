@@ -1,0 +1,380 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: Dosis, sans-serif;
+}
+
+body {
+   background-color: white;
+   overflow: auto;
+   height: 2000px;
+}
+
+.header {
+   position: fixed;
+   top: 10px;
+   left: 0;
+   width: 100%;
+   padding: 20px 10%;
+   z-index: 100;
+}
+.navbar {
+   position: fixed;
+   left: 0;
+   top: 0;
+   height: 100vh;
+   width: 100px; 
+   background-color: rgb(66, 66, 240);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   transition: width 0.3s ease;
+   z-index: 100; 
+}
+
+.navbar a {
+   display: flex;
+   margin-top: 30px;
+   align-items: center;
+   padding: 20px;
+   width: 100%;
+   color: white;
+   text-decoration: none;
+   position: relative;
+   transition: all 0.3s ease;
+}
+
+.navbar a button {
+   background-color: rgba(0, 0, 0, 0);
+   border: none;
+   display: flex;
+   align-items: center;
+}
+
+.navbar a button span{
+   padding:10px;
+   color: white;
+}
+
+
+
+.navbar a img {
+   width: 45px;
+   height: 45px;
+   transition: transform 0.3s ease;
+}
+
+
+.navbar a span {
+   opacity: 0; 
+   white-space: nowrap;
+   transition: opacity 0.3s ease;
+   position: absolute;
+   left: 70px; 
+}
+
+
+.navbar a span:hover  {
+   
+   color: rgb(206, 155, 44);
+   font-size: 19px;
+   font: bold;
+   transition: 1s;
+}
+
+.navbar:hover {
+   width: 250px;
+}
+
+.navbar:hover a span {
+   opacity: 1; 
+}
+
+.navbar:hover a img {
+   transform: scale(1.2); 
+}
+
+
+.navbar .container .btn_add {
+   border: none;
+   color: white;
+   background-color: rgba(0, 0, 0, 0);
+   padding: 10px;
+}
+
+.popup-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.5);
+   display: none; 
+   justify-content: center;
+   align-items: center;
+   z-index: 1000; 
+}
+
+.popup-content {
+   background-color: #fff;
+   padding: 50px;
+   border-radius: 10px;
+   width: 500px;
+   text-align: center;
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title_inf {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+   height: 40px;
+   width: 100%;
+}
+
+.close-btn {
+   position: absolute;
+   right: 10px;
+   font-size: 44px;
+   cursor: pointer;
+}
+
+.inp_inf {
+   padding: 10px;
+   background-color: rgb(230 230 236);
+}
+
+.pop_inp{
+   background-color: rgb(156, 154, 154);
+}
+
+.btn_inf {
+   padding: 10px;
+   border: none;
+   border-radius: 20%;
+   color: white;
+   background-color: rgb(8, 63, 24);
+}
+
+.user-list{
+   margin-top: 20%;
+   width: 700px;
+   display: inline-block;
+   font-size: 20px;
+}
+
+.textarea{
+   padding: 10px;
+}
+
+.patient-info-container {
+   width: 700px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 20px;
+   margin-top: 50px;
+   border: 1px solid black;
+   
+}
+
+.patient-image img {
+   width: 150px;
+   height: 150px;
+   border-radius: 50%;
+   margin-right: 20px;
+}
+
+.patient-details {
+   text-align: left;
+}
+
+.patient-details h2 {
+   font-size: 24px;
+   margin-bottom: 10px;
+}
+
+.patient-details p {
+   font-size: 18px;
+}
+
+
+.calendar-container {
+   width: 400px;
+   margin: 20px auto;
+   background-color: #f7f7f7;
+   border: 1px solid #ddd;
+   border-radius: 10px;
+   padding: 20px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 10px;
+}
+
+#month-name {
+   font-size: 1.5rem;
+   font-weight: bold;
+   color: #333;
+}
+#prev-month,#next-month {
+   background-color: #007bff;
+   border: none;
+   color: white;
+   padding: 5px 10px;
+   font-size: 14px;
+   cursor: pointer;
+   border-radius: 4px;
+}
+
+#prev-month:hover,#next-month:hover {
+   background-color: #0056b3;
+}
+
+.calendar {
+   display: grid;
+   grid-template-columns: repeat(7, 1fr);
+   gap: 5px;
+   margin-top: 10px;
+}
+
+.day {
+   background-color: #f1f1f1;
+   padding: 10px;
+   text-align: center;
+   font-weight: bold;
+   border-radius: 4px;
+   color: #555;
+}
+
+.date {
+   padding: 15px;
+   text-align: center;
+   background-color: white;
+   cursor: pointer;
+   border-radius: 4px;
+   transition: background-color 0.3s ease;
+}
+
+.date:hover {
+   background-color: #f1f1f1;
+}
+
+.date.today {
+   background-color: #007bff;
+   color: white;
+}
+
+.close-btn2 {
+   font-size: 20px;
+   cursor: pointer;
+   color: #ff0000;
+}
+
+.close-btn2:hover {
+   color: #ff4d4d;
+}
+
+.pt-info-container {
+   position: relative;
+   background-color: #ffe6cc;
+   width: 80%;
+   padding: 40px;
+   margin-top: 50px;
+   border-radius: 10px;
+}
+
+.pt-image img {
+   width: 150px;
+   height: 150px;
+   border-radius: 50%;
+   border: 5px solid #fff;
+}
+
+.circle-button {
+   position: absolute;
+   top: -50px;
+   width: 70px;
+   height: 70px;
+   background-color: #81d4fa;
+   border-radius: 50%;
+   text-align: center;
+   line-height: 70px;
+   font-size: 30px;
+   transition: all 0.3s ease;
+   cursor: pointer;
+}
+
+.circle-button img {
+   width: 40px;
+   height: 40px;
+}
+
+.circle-button:hover {
+   width: 100px;
+   height: 100px;
+   line-height: 100px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.circle-button#sleep {
+   left: 20%;
+}
+
+.circle-button#exercise {
+   left: 45%;
+}
+
+.circle-button#food {
+   left: 70%;
+}
+
+.input-form {
+   display: none;
+   margin-top: 20px;
+   background-color: white;
+   padding: 20px;
+   border-radius: 15px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-form.active {
+   display: block;
+}
+
+.form-control{
+   margin-top: 10px;
+}
+
+
+.input-form h1 {
+   font-size: 24px;
+   margin-bottom: 20px;
+}
+
+/* Styling for Patient Data (Doctor View) */
+.patient-data {
+   margin-top: 50px;
+   background-color: white;
+   padding: 30px;
+   border-radius: 15px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.patient-data h1 {
+   color: #007bff;
+   font-size: 24px;
+   margin-bottom: 20px;
+}
+
+.patient-data p {
+   font-size: 18px;
+   margin-bottom: 10px;
+}
